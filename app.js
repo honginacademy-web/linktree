@@ -64,13 +64,13 @@ function render() {
   linksSection.innerHTML = links
     .map(
       (link) => `
-    <a class="link-card${link.primary ? " link-card--primary" : ""}"
+    <a class="link-card"
        href="${link.url}"
        target="_blank"
        rel="noopener noreferrer">
-      <span class="link-icon">${link.icon}</span>
+      <span class="link-icon-wrap"><span class="link-icon">${link.icon}</span></span>
       <span class="link-label">${link.label}</span>
-      <span class="link-arrow">→</span>
+      <span class="link-spacer"></span>
     </a>
   `
     )
