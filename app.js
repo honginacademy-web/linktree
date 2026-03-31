@@ -1,27 +1,41 @@
 // 링크 데이터를 여기서 수정하세요
 const profileData = {
-  name: "이름을 입력하세요",
-  bio: "한 줄 소개를 입력하세요",
-  avatar: "https://github.com/github.png",
+  name: "일반기계기사 홍교수",
+  bio: "안녕하세요! 일반기계기사 학습에 꼭 필요한 정보만을 제공해드리고 있습니다.",
+  avatar: "images/profile.png",
 };
 
 const links = [
+  // ── 주요 링크 4개 ──
   {
-    icon: "🐙",
-    label: "GitHub",
-    url: "https://github.com/",
-    primary: false,
+    icon: "🏫",
+    label: "일반기계기사 홍인학원",
+    url: "#",
+    primary: true,
   },
   {
-    icon: "💼",
-    label: "포트폴리오",
+    icon: "💬",
+    label: "일반기계기사 단톡방",
     url: "#",
     primary: false,
   },
   {
-    icon: "✉️",
-    label: "이메일",
-    url: "mailto:your@email.com",
+    icon: "📞",
+    label: "일반기계기사 수강 상담",
+    url: "#",
+    primary: false,
+  },
+  {
+    icon: "⚙️",
+    label: "기계공학 강의 기계스토리",
+    url: "#",
+    primary: false,
+  },
+  // ── SNS / 채널 ──
+  {
+    icon: "▶️",
+    label: "유튜브",
+    url: "#",
     primary: false,
   },
   {
@@ -31,10 +45,10 @@ const links = [
     primary: false,
   },
   {
-    icon: "🚀",
-    label: "주요 프로젝트",
+    icon: "🔗",
+    label: "미정",
     url: "#",
-    primary: true,
+    primary: false,
   },
 ];
 
