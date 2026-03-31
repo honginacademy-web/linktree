@@ -4,11 +4,9 @@
   --color-primary-dark: #1b64da;
   --color-black: #191f28;
   --color-gray-600: #6b7684;
-  --color-gray-100: #f2f4f6;
+  --color-gray-200: #e8ebed;
   --color-white: #ffffff;
-  --color-bg: #e8e4de;          /* 링크트리 스타일 배경 */
-  --radius-card: 24px;
-  --radius-btn: 12px;
+  --color-bg: #e8e4de;
   --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -35,12 +33,12 @@ body {
   width: 100%;
   max-width: 580px;
   background-color: var(--color-white);
-  border-radius: var(--radius-card);
+  border-radius: 24px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
-  padding: 40px 24px 36px;
+  padding: 44px 28px 40px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 /* ===== 프로필 ===== */
@@ -48,7 +46,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   text-align: center;
 }
 
@@ -68,7 +66,7 @@ body {
 }
 
 .name {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-black);
   letter-spacing: -0.3px;
@@ -81,33 +79,35 @@ body {
   max-width: 380px;
 }
 
-/* ===== 링크 버튼 ===== */
+/* ===== 링크 버튼 (pill 형태) ===== */
 .links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .link-card {
-  display: grid;
-  grid-template-columns: 52px 1fr 52px;
+  display: flex;
   align-items: center;
-  min-height: 58px;
-  padding: 8px 0;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 14px 24px;
   background-color: var(--color-primary);
-  border-radius: var(--radius-btn);
+  border-radius: 9999px;           /* pill 형태 */
   text-decoration: none;
   color: var(--color-white);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16px;
+  letter-spacing: -0.2px;
   transition: transform var(--transition), box-shadow var(--transition),
     background-color var(--transition);
-  overflow: hidden;
+  position: relative;
 }
 
 .link-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(49, 130, 246, 0.36);
+  box-shadow: 0 8px 24px rgba(49, 130, 246, 0.38);
   background-color: var(--color-primary-dark);
 }
 
@@ -116,32 +116,14 @@ body {
   box-shadow: none;
 }
 
-/* 아이콘 영역 (왼쪽) */
-.link-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 100%;
-}
-
 .link-icon {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1;
+  flex-shrink: 0;
 }
 
-/* 텍스트 (가운데 정렬) */
 .link-label {
   text-align: center;
-  padding: 0 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* 오른쪽 여백 (균형용) */
-.link-spacer {
-  width: 52px;
 }
 
 /* ===== 푸터 ===== */

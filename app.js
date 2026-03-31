@@ -68,9 +68,8 @@ function render() {
        href="${link.url}"
        target="_blank"
        rel="noopener noreferrer">
-      <span class="link-icon-wrap"><span class="link-icon">${link.icon}</span></span>
+      <span class="link-icon">${link.icon}</span>
       <span class="link-label">${link.label}</span>
-      <span class="link-spacer"></span>
     </a>
   `
     )
