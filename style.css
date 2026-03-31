@@ -124,10 +124,32 @@ body {
   text-align: center;
 }
 
-/* ===== 푸터 ===== */
-.footer {
-  text-align: center;
-  font-size: 13px;
-  color: var(--color-gray-600);
-  padding-top: 4px;
+/* ===== 소셜 아이콘 ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+  font-size: 40px;
+  text-decoration: none;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+  color: var(--color-primary-dark);
+}
+
+.social-icon:active {
+  transform: translateY(0);
+}
+
