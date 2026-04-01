@@ -1,12 +1,13 @@
-/* ===== Toss-inspired Color Palette ===== */
+/* ===== Toss Design System Palette (skill.md 기준) ===== */
 :root {
-  --color-primary: #3182f6;
-  --color-primary-dark: #1b64da;
-  --color-black: #191f28;
-  --color-gray-600: #6b7684;
-  --color-gray-200: #e8ebed;
-  --color-white: #ffffff;
-  --color-bg: #e8e4de;
+  --bg:              #F9FAFB;       /* 페이지 배경 */
+  --surface:         #FFFFFF;       /* 카드 배경 */
+  --border:          #E8EAED;       /* 구분선 */
+  --text-primary:    #191F28;       /* 본문 */
+  --text-secondary:  #6B7684;       /* 보조 텍스트 */
+  --accent:          #3182F6;       /* Toss 시그니처 블루 */
+  --accent-dark:     #1B64DA;       /* hover 블루 */
+  --accent-light:    #EBF3FE;       /* 블루 틴트 배경 */
   --transition: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -18,23 +19,23 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo',
-    'Pretendard', sans-serif;
-  background-color: var(--color-bg);
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  background-color: var(--bg);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 32px 16px 64px;
+  overflow-y: scroll;
 }
 
 /* ===== 카드 컨테이너 ===== */
 .container {
   width: 100%;
   max-width: 580px;
-  background-color: var(--color-white);
+  background-color: var(--surface);
   border-radius: 24px;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 44px 28px 40px;
   display: flex;
   flex-direction: column;
@@ -66,18 +67,18 @@ body {
 .name {
   font-size: 20px;
   font-weight: 700;
-  color: var(--color-black);
+  color: var(--text-primary);
   letter-spacing: -0.3px;
 }
 
 .bio {
   font-size: 16px;
-  color: var(--color-gray-600);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 380px;
 }
 
-/* ===== 링크 버튼 (pill 형태) ===== */
+/* ===== 링크 버튼 (라운드 사각형) ===== */
 .links {
   display: flex;
   flex-direction: column;
@@ -89,29 +90,29 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: 100%;
   min-height: 56px;
   padding: 14px 24px;
-  background-color: var(--color-primary);
-  border-radius: 9999px;           /* pill 형태 */
+  background-color: var(--accent);
+  border-radius: 16px;
   text-decoration: none;
-  color: var(--color-white);
+  color: #FFFFFF;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.2px;
-  transition: transform var(--transition), box-shadow var(--transition),
-    background-color var(--transition);
+  transition: background-color var(--transition);
   position: relative;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .link-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(49, 130, 246, 0.38);
-  background-color: var(--color-primary-dark);
+  background-color: var(--accent-dark);
 }
 
 .link-card:active {
-  transform: translateY(0);
-  box-shadow: none;
+  background-color: var(--accent-dark);
 }
 
 .link-icon {
@@ -122,6 +123,104 @@ body {
 
 .link-label {
   text-align: center;
+  flex: 1;
+}
+
+/* ===== 아코디언 ===== */
+.link-accordion {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+
+.link-accordion:hover .accordion-trigger {
+  background-color: var(--accent-dark);
+}
+
+.accordion-trigger {
+  border-radius: 0;
+  transition: background-color var(--transition);
+}
+
+.link-accordion.open .accordion-trigger {
+  background-color: var(--accent-dark);
+}
+
+.accordion-chevron {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+  margin-left: auto;
+}
+
+.link-accordion.open .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* 패널 — 트리거 바로 아래 이어서 슬라이드 */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--accent-light);
+}
+
+/* 배너 래퍼 — 좌우 패딩으로 카드 안 카드 느낌 */
+.accordion-banner-wrap {
+  padding: 14px 16px 8px;
+}
+
+.accordion-banner-placeholder {
+  width: 100%;
+  height: 120px;
+  background-color: var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.accordion-banner-placeholder::after {
+  content: "광고 배너 영역";
+}
+
+.accordion-banner-img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/* 하위 링크 */
+.accordion-sub-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 16px 14px;
+}
+
+.accordion-sub-link {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.accordion-sub-link:hover {
+  background-color: rgba(49, 130, 246, 0.10);
+  color: var(--accent-dark);
+}
+
+.accordion-sub-link:last-child {
+  border-radius: 0 0 8px 8px;
 }
 
 /* ===== 소셜 아이콘 ===== */
@@ -138,18 +237,29 @@ body {
   justify-content: center;
   width: 48px;
   height: 48px;
-  color: var(--color-primary);
+  color: var(--accent);
   font-size: 40px;
   text-decoration: none;
-  transition: transform var(--transition), color var(--transition);
+  transition: color var(--transition);
+}
+
+.social-icon i,
+.social-icon img {
+  display: block;
+  transition: transform var(--transition);
+  transform-origin: center center;
 }
 
 .social-icon:hover {
-  transform: translateY(-2px);
-  color: var(--color-primary-dark);
+  color: var(--accent-dark);
 }
 
-.social-icon:active {
-  transform: translateY(0);
+.social-icon:hover i,
+.social-icon:hover img {
+  transform: scale(1.1);
 }
 
+.social-icon:active i,
+.social-icon:active img {
+  transform: scale(1);
+}
